@@ -442,10 +442,10 @@ body {
 }
 .login__password-input {
   border-radius: 4px;
+  border-radius: 4px;
   padding-left: 10px;
   font-size: 14px;
   padding-block: 8px;
-  margin-bottom: 5px;
   border: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 .login__sign-in {
@@ -471,4 +471,122 @@ body {
 }
 .login__reg-text a:hover {
   text-decoration: underline;
+}
+
+/*––––––––––––––––––––––––––––––*/
+/*–––––––––––––––REGISTER–––––––––––––––*/
+/*––––––––––––––––––––––––––––––*/
+.reg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  gap: 20px;
+  width: 320px;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+}
+.reg__title {
+  text-align: center;
+  font-weight: 300;
+  font-family: "Montserrat";
+  font-size: 24px;
+}
+.reg__form {
+  background: #edf9fc;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+.reg__email-input {
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 14px;
+  padding-block: 8px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 17px;
+}
+.reg__password-input {
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 14px;
+  padding-block: 8px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+.reg__password-show {
+  margin-bottom: 17px;
+  height: 15px;
+  width: 15px;
+  margin-left: 4px;
+  position: relative;
+}
+.reg__password-show::after {
+  content: "Показать пароль";
+  position: absolute;
+  top: 0;
+  right: -110px;
+}
+.reg__name-input {
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 14px;
+  padding-block: 8px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 17px;
+  display: block;
+}
+.reg__surname-input {
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 14px;
+  padding-block: 8px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 17px;
+}
+.reg__submit {
+  display: block;
+  color: #fff;
+  background: #31a8a8;
+  padding-block: 8px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+.reg__submit:hover {
+  background: #2c8297;
+}
+.reg__logn {
+  padding-block: 20px;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 15%;
+  background: #fff;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+.reg__login-text a {
+  color: var(--color-accent-fg);
+}
+.reg__login-text a:hover {
+  text-decoration: underline;
+}
+
+.bg {
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.particles-js-canvas-el {
+  z-index: -10;
+  height: 100% !important;
+  width: 100% !important;
 }/*# sourceMappingURL=style.css.map */

@@ -7,7 +7,51 @@
     <title>reg</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/jquery-3.6.1.min.js"></script>
-    <script src="js/script.js" defer></script>
+    <script src="js/particles.js"></script>
+    <script src="js/reg.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div id="particles-js" class="bg">
+      <main class="reg">
+        <h1 class="reg__title">Регистрация</h1>
+        <form class="reg__form">
+          <h3 class="reg__email-title">Электронная почта</h3>
+          <input
+            type="email"
+            name="email"
+            placeholder="Введите почту"
+            class="reg__email-input"
+          />
+          <h3 class="reg__password-title">Пароль</h3>
+          <input
+            type="password"
+            name="password"
+            placeholder="Введите пароль"
+            class="reg__password-input"
+          />
+          <input type="checkbox" class="reg__password-show" />
+          <h3 class="reg__name-title">Имя</h3>
+          <input
+            type="text"
+            name="name"
+            placeholder="Введите имя"
+            class="reg__name-input"
+          />
+          <h3 class="reg__surname-title">Фамилия</h3>
+          <input
+            type="text"
+            name="surname"
+            placeholder="Введите фамилию"
+            class="reg__surname-input"
+          />
+          <button class="reg__submit">Зарегистрировался</button>
+        </form>
+        <div class="reg__logn">
+          <div class="reg__login-text">
+            У вас уже есть аккаунт? <a href="#"> Войти → </a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
