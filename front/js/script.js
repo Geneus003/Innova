@@ -10,7 +10,7 @@ $(window).click(function (e) {
     $('#d1').fadeOut('fast');
     $('#d2').fadeOut('fast');
   }
-});
+}); //ком
 
 $(window).scroll(function () {
   const scrollHeight = $(this).scrollTop();
