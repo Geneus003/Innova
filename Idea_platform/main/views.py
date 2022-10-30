@@ -12,3 +12,6 @@ def login(request):
 def reg(request):
   file = 'reg.html'
   return render(request, 'main/' + file ,{"file": file})
+
+def add_project(request):
+  return render(request, 'main/add_project.html')
