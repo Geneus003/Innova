@@ -1,4 +1,10 @@
 {% extends 'main/base.html' %}
+{% load static %}
+
+{% block content2 %}
+<script src="{% static 'js/particles.js' %}"></script>
+<script src="{% static 'js/reg.js' %}" defer></script>
+{% endblock %}
 
 {% block content %}
 <div id="particles-js" class="bg">

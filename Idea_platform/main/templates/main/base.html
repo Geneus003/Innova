@@ -8,11 +8,7 @@
     <title>reg</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
-    {% if file == 'index.html' %}<script src="{% static 'js/script.js' %}" defer></script>{% endif %}
-    {% if file == 'reg.html' %}
-    <script src="{% static 'js/particles.js' %}"></script>
-    <script src="{% static 'js/reg.js' %}" defer></script>
-    {% endif %}
+    {% block content2 %} {% endblock %}
   </head>
   <body>
     {% block content %}{% endblock %}

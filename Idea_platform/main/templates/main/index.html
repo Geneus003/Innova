@@ -1,4 +1,9 @@
 {% extends 'main/base.html' %}
+{% load static %}
+
+{% block content2 %}
+<script src="{% static 'js/script.js' %}" defer></script>
+{% endblock %}
 
 {% block content %}    
 <div class="header">
