@@ -72,7 +72,7 @@ body {
   border: 2px solid var(--alt-color);
   padding: 8px 12px;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: rgb(232, 232, 232);;
   filter: drop-shadow(0 0 3px var(--alt-color));
 
   font-size: var(--font-size-normal);
@@ -156,6 +156,7 @@ body {
   &__add-project-button {
     background: #fff;
     filter: drop-shadow(0 0 10px var(--sec-color));
+    background-color: rgb(108, 217, 89);
   }
 
   &__buttons {
@@ -415,11 +416,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
   font-size: 14px;
   gap: 20px;
   width: 320px;
   margin: auto;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
 
   &__logo {
     div {
@@ -439,7 +445,7 @@ body {
   }
 
   &__from {
-    background: rgba(#50de84, 0.1);
+    background: #edfcf2;
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -479,7 +485,7 @@ body {
   }
 
   &__reg {
-    // background: rgba(0, 0, 0, 0.05);
+    background: #fff;
     padding-block: 20px;
     border-radius: 4px;
     text-align: center;
@@ -564,6 +570,7 @@ body {
       position: absolute;
       top: 0;
       right: -110px;
+      color: var(--text-color);
     }
   }
 
@@ -622,9 +629,6 @@ body {
 .bg {
   height: 100%;
   width: 100%;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
   z-index: -10;
   overflow: hidden;
 }
