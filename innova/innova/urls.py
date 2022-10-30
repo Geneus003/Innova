@@ -20,8 +20,11 @@ from django.urls import path
 from auth.views import auth_function
 from feed.views import index
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', auth_function),
     path('', index)
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

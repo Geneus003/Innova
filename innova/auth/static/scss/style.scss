@@ -235,6 +235,7 @@ body {
   background-color: rgba(0, 0, 0, 0.05);
   display: flex;
   flex-grow: 1;
+  border-radius: 25px;
 
   @media (max-width: 986px) {
     &__img-place {
