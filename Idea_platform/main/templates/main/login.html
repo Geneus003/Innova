@@ -15,7 +15,8 @@
       <div></div>
     </div>
     <h1 class="login__title">Авторизация</h1>
-    <form class="login__from">
+    <form method="POST" class="login__from">
+      {% csrf_token %}
       <h3 class="login__email-title">Электронная почта</h3>
       <input
         type="email"

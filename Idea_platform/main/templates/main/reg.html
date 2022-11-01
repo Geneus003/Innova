@@ -12,13 +12,15 @@
 <div id="particles-js" class="bg">
   <main class="reg">
     <h1 class="reg__title">Регистрация</h1>
-    <form class="reg__form">
+    <form method="POST" class="reg__form">
+      {% csrf_token %}
       <h3 class="reg__email-title">Электронная почта</h3>
       <input
         type="email"
-        name="email"
+        name="mail"
         placeholder="Введите почту"
         class="reg__email-input"
+        required
       />
       <h3 class="reg__password-title">Пароль</h3>
       <input
@@ -26,6 +28,7 @@
         name="password"
         placeholder="Введите пароль"
         class="reg__password-input"
+        required
       />
       <input type="checkbox" class="reg__password-show" />
       <h3 class="reg__name-title">Имя</h3>
@@ -34,6 +37,7 @@
         name="name"
         placeholder="Введите имя"
         class="reg__name-input"
+        required
       />
       <h3 class="reg__surname-title">Фамилия</h3>
       <input
@@ -41,6 +45,7 @@
         name="surname"
         placeholder="Введите фамилию"
         class="reg__surname-input"
+        required
       />
       <button class="reg__submit">Зарегистрировался</button>
     </form>
