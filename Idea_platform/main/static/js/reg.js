@@ -1,3 +1,21 @@
+// show password
+
+$('.reg__password-show').on('click', function(){
+  if ($(this).is(':checked')){
+    $('#password').attr('type', 'text');
+  } else {
+    $('#password').attr('type', 'password');
+  }
+}); 
+
+// $('body').load("index.html", "data", function (response, status, request) {
+//   // this; // dom element
+//   alert( "Load was performed." );
+//   console.log(this);
+// });
+
+// bg
+
 particlesJS('particles-js', {
   particles: {
     number: {

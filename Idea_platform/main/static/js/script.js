@@ -3,7 +3,7 @@ const filterOffset =
   $(window).width() - $('.filter').offset().left - $('.filter').width() - 30;
 const filterWidth = $(window).width() - $('.filter').offset().left;
 // console.log($('.filter').offset().left);
-console.log($(window).width());
+// console.log($(window).width());
 
 $(window).click(function (e) {
   if (e.target.classList[1] != 'input') {
@@ -16,7 +16,7 @@ $(window).scroll(function () {
   const scrollHeight = $(this).scrollTop();
 
   // console.log(filterOffset);
-  console.log(filterWidth);
+  // console.log(filterWidth);
 
   if ($(window).width() > 768) {
     if (filterPlace < scrollHeight) {

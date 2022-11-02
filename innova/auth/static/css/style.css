@@ -128,7 +128,7 @@ body {
   border: 2px solid var(--alt-color);
   padding: 8px 12px;
   border-radius: 5px;
-  background-color: rgb(232, 232, 232);
+  background-color: #fff;
   filter: drop-shadow(0 0 3px var(--alt-color));
   font-size: var(--font-size-normal);
   transition: all 0.2s;
@@ -197,7 +197,6 @@ body {
 .header__add-project-button {
   background: #fff;
   filter: drop-shadow(0 0 10px var(--sec-color));
-  background-color: rgb(108, 217, 89);
 }
 .header__buttons {
   display: flex;

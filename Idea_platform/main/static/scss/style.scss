@@ -84,11 +84,18 @@ body {
   }
 }
 
-.input {
-  border: 1px solid rgb(104, 104, 104);
+.input{
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 10px;
-  font-size: var(--font-size-normal);
+  width: 100%;
+  font-family: sans-serif !important;
+  font-size: 14px;
+
+  &__label{
+    display: block;
+    // margin-block: 10px;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -502,6 +509,14 @@ body {
       }
     }
   }
+
+  &__fail {
+    padding-block: 20px;
+    border-radius: 4px;
+    text-align: center;
+    background: #ffebe9;
+    border: 1.5px solid #ffc2c1;
+  }
 }
 
 /*––––––––––––––––––––––––––––––*/
@@ -545,20 +560,20 @@ body {
   // &__email-title {
   // }
 
-  &__email-input {
-    @include input();
-    margin-bottom: 17px;
-  }
+  // &__email-input {
+  //   @include input();
+  //   margin-bottom: 17px;
+  // }
 
   // &__password-title {
   // }
 
-  &__password-input {
-    @include input();
-  }
+  // &__password-input {
+  //   @include input();
+  // }
 
   &__password-show {
-    margin-bottom: 17px;
+    margin-bottom: 5px;
     height: 15px;
     width: 15px;
     margin-left: 4px;
@@ -577,19 +592,19 @@ body {
   // &__name-title {
   // }
 
-  &__name-input {
-    @include input();
-    margin-bottom: 17px;
-    display: block;
-  }
+  // &__name-input {
+  //   @include input();
+  //   margin-bottom: 17px;
+  //   display: block;
+  // }
 
   // &__surname-title {
   // }
 
-  &__surname-input {
-    @include input();
-    margin-bottom: 17px;
-  }
+  // &__surname-input {
+  //   @include input();
+  //   margin-bottom: 17px;
+  // }
 
   &__submit {
     display: block;
@@ -600,6 +615,7 @@ body {
     border-radius: 4px;
     border: 1.5px solid rgba(0, 0, 0, 0.1);
     font-weight: 700;
+    margin-top: 15px;
 
     &:hover {
       background: #2c8297;
@@ -637,4 +653,8 @@ body {
   z-index: -10;
   height: 100% !important;
   width: 100% !important;
+}
+
+.errorlist{
+  color: #ff4040;
 }

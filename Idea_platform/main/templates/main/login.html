@@ -5,7 +5,7 @@
 
 {% block content2 %}
 <script src="{% static 'js/particles.js' %}"></script>
-<script src="{% static 'js/reg.js' %}" defer></script>
+<script src="{% static 'js/login.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}   
@@ -15,22 +15,32 @@
       <div></div>
     </div>
     <h1 class="login__title">Авторизация</h1>
+
+    {% if fail %}
+    <div class="login__fail">
+      Неправильная почта или пароль.
+    </div>
+    {% endif %}
+
     <form method="POST" class="login__from">
       {% csrf_token %}
-      <h3 class="login__email-title">Электронная почта</h3>
+      <label class="login__email-title">Электронная почта</label>
       <input
         type="email"
         placeholder="Введите почту"
         name="email"
         class="login__email-input"
+        required
       />
-      <h3 class="login__password-title">Пароль</h3>
+      <label class="login__password-title">Пароль</label>
       <input
         type="password"
         placeholder="Введите пароль"
         name="password"
         class="login__password-input"
+        required
       />
+      <input type="checkbox" class="reg__password-show" />
       <button class="login__sign-in">Войти</button>
     </form>
     <div class="login__reg">

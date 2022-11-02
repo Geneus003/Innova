@@ -12,17 +12,38 @@
 <div id="particles-js" class="bg">
   <main class="reg">
     <h1 class="reg__title">Регистрация</h1>
+
+    {% if fail %}
+    <div class="login__fail">
+      {{fail}}
+    </div>
+    {% endif %}
+
     <form method="POST" class="reg__form">
       {% csrf_token %}
-      <h3 class="reg__email-title">Электронная почта</h3>
+
+      {% for field in user_form %}
+      <label  class="input__label">{{field.label}}</label>
+      {{field}}
+      {% if field.name == "password" %}
+      <input type="checkbox" class="reg__password-show" />
+      {% endif %}
+      <div class="form-error">{{field.errors}}</div>
+      {% endfor %}
+      <button class="reg__submit">Зарегистрировался</button>
+    </form>
+
+    {% comment %} <form method="POST" class="reg__form">
+      {% csrf_token %}
+      <label  class="reg__email-title">Электронная почта</label>
       <input
         type="email"
-        name="mail"
+        name="email"
         placeholder="Введите почту"
         class="reg__email-input"
         required
       />
-      <h3 class="reg__password-title">Пароль</h3>
+      <label  class="reg__password-title">Пароль</label>
       <input
         type="password"
         name="password"
@@ -31,15 +52,15 @@
         required
       />
       <input type="checkbox" class="reg__password-show" />
-      <h3 class="reg__name-title">Имя</h3>
+      <label  class="reg__name-title">Имя</label>
       <input
         type="text"
-        name="name"
+        name="first_name"
         placeholder="Введите имя"
         class="reg__name-input"
         required
       />
-      <h3 class="reg__surname-title">Фамилия</h3>
+      <label  class="reg__surname-title">Фамилия</label>
       <input
         type="text"
         name="surname"
@@ -48,7 +69,7 @@
         required
       />
       <button class="reg__submit">Зарегистрировался</button>
-    </form>
+    </form> {% endcomment %}
     <div class="reg__logn">
       <div class="reg__login-text">
         У вас уже есть аккаунт? <a href="{% url 'login' %}"> Войти → </a>

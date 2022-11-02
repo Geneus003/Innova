@@ -139,10 +139,15 @@ body {
 }
 
 .input {
-  border: 1px solid rgb(104, 104, 104);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 10px;
-  font-size: var(--font-size-normal);
+  width: 100%;
+  font-family: sans-serif !important;
+  font-size: 14px;
+}
+.input__label {
+  display: block;
 }
 
 ::-webkit-scrollbar {
@@ -479,6 +484,13 @@ body {
 .login__reg-text a:hover {
   text-decoration: underline;
 }
+.login__fail {
+  padding-block: 20px;
+  border-radius: 4px;
+  text-align: center;
+  background: #ffebe9;
+  border: 1.5px solid #ffc2c1;
+}
 
 /*––––––––––––––––––––––––––––––*/
 /*–––––––––––––––REGISTER–––––––––––––––*/
@@ -513,23 +525,8 @@ body {
   border: 1.5px solid rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
-.reg__email-input {
-  border-radius: 4px;
-  padding-left: 10px;
-  font-size: 14px;
-  padding-block: 8px;
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 17px;
-}
-.reg__password-input {
-  border-radius: 4px;
-  padding-left: 10px;
-  font-size: 14px;
-  padding-block: 8px;
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
-}
 .reg__password-show {
-  margin-bottom: 17px;
+  margin-bottom: 5px;
   height: 15px;
   width: 15px;
   margin-left: 4px;
@@ -542,23 +539,6 @@ body {
   right: -110px;
   color: var(--text-color);
 }
-.reg__name-input {
-  border-radius: 4px;
-  padding-left: 10px;
-  font-size: 14px;
-  padding-block: 8px;
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 17px;
-  display: block;
-}
-.reg__surname-input {
-  border-radius: 4px;
-  padding-left: 10px;
-  font-size: 14px;
-  padding-block: 8px;
-  border: 1.5px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 17px;
-}
 .reg__submit {
   display: block;
   color: #fff;
@@ -567,6 +547,7 @@ body {
   border-radius: 4px;
   border: 1.5px solid rgba(0, 0, 0, 0.1);
   font-weight: 700;
+  margin-top: 15px;
 }
 .reg__submit:hover {
   background: #2c8297;
@@ -597,4 +578,8 @@ body {
   z-index: -10;
   height: 100% !important;
   width: 100% !important;
+}
+
+.errorlist {
+  color: #ff4040;
 }/*# sourceMappingURL=style.css.map */
