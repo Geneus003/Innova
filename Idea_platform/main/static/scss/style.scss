@@ -26,11 +26,17 @@
 /*–––––––––––––––mixins–––––––––––––––*/
 
 @mixin input {
-  border-radius: 4px;
-  padding-left: 10px;
-  font-size: 14px;
-  padding-block: 8px;
   border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-family: sans-serif !important;
+  font-size: 14px;
+
+  &__label{
+    display: block;
+    // margin-block: 10px;
+  }
 }
 
 /*–––––––––––––––GLOBAL–––––––––––––––*/
@@ -177,9 +183,8 @@ body {
   // &__login-button {
   // }
 
-  &__profile {
-    display: none;
-  }
+  // &__profile {
+  // }
 
   &__profile-link {
     position: relative;
@@ -188,16 +193,17 @@ body {
     align-items: center;
     justify-content: center;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -30%;
-      border-radius: 100vh;
-      height: 30px;
-      width: 30px;
-      background-color: #9d9d9d;
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 50%;
+    //   left: -40px;
+    //   transform: translate(0, -50%);
+    //   border-radius: 100vh;
+    //   height: 30px;
+    //   width: 30px;
+    //   background-color: #9d9d9d;
+    // }
   }
 }
 
@@ -215,9 +221,6 @@ body {
   &__search {
     width: 40%;
   }
-
-  // &__button {
-  // }
 }
 
 /*–––––––––––––––proj–––––––––––––––*/
@@ -465,16 +468,20 @@ body {
   // &__email-title {
   // }
 
-  &__email-input {
-    margin-bottom: 10px;
-    @include input();
-  }
+  // &__email-input {
+  //   margin-bottom: 10px;
+  //   @include input();
+  // }
 
   // &__password-title {
   // }
 
-  &__password-input {
-    border-radius: 4px;
+  // &__password-input {
+  //   border-radius: 4px;
+  //   @include input();
+  // }
+
+  input {
     @include input();
   }
 
@@ -485,6 +492,7 @@ body {
     border-radius: 4px;
     border: 1.5px solid rgba(0, 0, 0, 0.1);
     font-weight: 700;
+    margin-top: 20px;
 
     &:hover {
       background: #2c974b;

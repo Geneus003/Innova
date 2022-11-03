@@ -21,8 +21,13 @@ class register(forms.ModelForm):
         model = CustomUser
         fields = ('email', 'password', 'first_name', 'last_name')
 
-    # def clean_password2(self):
-    #     cd = self.cleaned_data
-    #     if cd['password'] != cd['password2']:
-    #         raise forms.ValidationError('Passwords don\'t match.')
-    #     return cd['password2']
+
+class login(forms.ModelForm):
+    email = forms.EmailField(label='Электронная почта', widget=forms.EmailInput(attrs={'class': 'input', 'placeholder':'Введите почту'}))
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder':'Введите пароль', 'id': 'password'}))
+
+    REQUIRED_FIELDS = ['email', 'password']
+
+    class Meta:
+        model = CustomUser
+        fields = ('email', 'password')

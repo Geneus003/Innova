@@ -14,15 +14,19 @@
     <a href="{% url 'add_idea' %}" class="header__add-project-button button">
       Добавить проект
     </a>
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'profile' %}" class="header__profile">
+      <div class="header__profile-link">Личный кабинет</div>
+    </a>
+    {% else %}
     <div class="header__buttons">
       <a href="{% url 'reg' %}" class="header__register-button button">
         Зарегистрироваться
       </a>
       <a href="{% url 'login' %}" class="header__login-button button">Войти</a>
     </div>
-    <a href="#" class="header__profile">
-      <div class="header__profile-link">Личный кабинет</div>
-    </a>
+    {% endif %}
   </div>
 </div>
 

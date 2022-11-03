@@ -16,7 +16,13 @@
     </div>
     <h1 class="login__title">Авторизация</h1>
 
-    {% if fail %}
+    {% comment %} {% if fail %}
+    <div class="login__fail">
+      Неправильная почта или пароль.
+    </div>
+    {% endif %} {% endcomment %}
+
+    {% if form.errors %}
     <div class="login__fail">
       Неправильная почта или пароль.
     </div>
@@ -24,7 +30,15 @@
 
     <form method="POST" class="login__from">
       {% csrf_token %}
-      <label class="login__email-title">Электронная почта</label>
+      {% comment %} {{ form }} {% endcomment %}
+
+      {{ form.username.label_tag }}
+      {{ form.username }}
+
+      {{ form.password.label_tag }}
+      {{ form.password }}
+
+      {% comment %} <label class="login__email-title">Электронная почта</label>
       <input
         type="email"
         placeholder="Введите почту"
@@ -40,7 +54,7 @@
         class="login__password-input"
         required
       />
-      <input type="checkbox" class="reg__password-show" />
+      <input type="checkbox" class="reg__password-show" /> {% endcomment %}
       <button class="login__sign-in">Войти</button>
     </form>
     <div class="login__reg">
