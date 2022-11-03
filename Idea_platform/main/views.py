@@ -65,7 +65,7 @@ def profile(request):
 
 def logout_rec(request):
   logout(request)
-  return render(request, 'main/index.html')
+  return HttpResponseRedirect('/')
 
 
 # # сохранение данных в бд
