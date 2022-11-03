@@ -57,4 +57,18 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class Commands(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=1024)
+
+
+class Ideas(models.Model):
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=1024)
+    release_date = models.DateField(auto_now_add=True)
+    command_id = models.ForeignKey(Commands, default=None, on_delete=models.CASCADE)
+
     
