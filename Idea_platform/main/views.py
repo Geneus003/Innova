@@ -1,8 +1,10 @@
 from unicodedata import name
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponseNotFound, HttpResponse
-from .models import Users2, CustomUser
-from .forms import reg_f, register
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from .models import CustomUser
+from .forms import register
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -10,27 +12,28 @@ def index(request):
   return render(request, 'main/index.html')
 
 def login(request):
-  print("-----------------------------" + request.method)
-  if request.method == "POST":
-    email = request.POST.get("email")
-    password = request.POST.get("password")
+  return render(request, 'main/login2.html')
+  # print("-----------------------------" + request.method)
+  # if request.method == "POST":
+  #   email = request.POST.get("email")
+  #   password = request.POST.get("password")
 
-    users = CustomUser.objects.all()
-    users = users.filter(email = email)
+  #   users = CustomUser.objects.all()
+  #   users = users.filter(email = email)
 
-    print(request.POST.get("name"))
-    print(len(users))
-    print(users.exists())
-    if (len(users) > 0):
-      for user in users:
-        print(f"{user.id}.{user.first_name} -- {user.email}")
+  #   print(request.POST.get("name"))
+  #   print(len(users))
+  #   print(users.exists())
+  #   if (len(users) > 0):
+  #     for user in users:
+  #       print(f"{user.id}.{user.first_name} -- {user.email}")
 
-    if (users.exists()):
-      return HttpResponseRedirect("/")
-    else:
-      return render(request, 'main/login2.html', {"fail": 'Неправильная поста или пароль.'})
-  else:
-    return render(request, 'main/login2.html')
+  #   if (users.exists()):
+  #     return HttpResponseRedirect("/")
+  #   else:
+  #     return render(request, 'main/login2.html', {"fail": 'Неправильная поста или пароль.'})
+  # else:
+  #   return render(request, 'main/login2.html')
 
 
 def reg(request):
@@ -52,11 +55,18 @@ def reg(request):
   return render(request, 'main/reg.html', {'user_form': user_form})
  
 
+@login_required
 def add_idea(request):
   return render(request, 'main/add_idea.html')
 
+@login_required
 def profile(request):
   return render(request, 'main/profile.html')
+
+def logout_rec(request):
+  logout(request)
+  return render(request, 'main/index.html')
+
 
 # # сохранение данных в бд
 # def create(request):

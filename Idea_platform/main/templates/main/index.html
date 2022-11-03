@@ -16,9 +16,19 @@
     </a>
 
     {% if user.is_authenticated %}
-    <a href="{% url 'profile' %}" class="header__profile">
-      <div class="header__profile-link">Личный кабинет</div>
-    </a>
+    <div class="header__profile">
+      <button class="header__profile-link">Личный кабинет</button>
+      <div class="profile-dropdown">
+        <a href="{% url 'profile' %}" class="profile-dropdown__enter">Войти в личный кобинет</a>
+        <a href="{% url 'logout' %}" class="profile-dropdown__logout">Выйти</a>
+      </div>
+    </div>
+
+    {% comment %} <div class="profile-dropdown">
+      <div class="profile-dropdown__enter">Войти в личный кобинет</div>
+      <div class="profile-dropdown__logout">Выйти</div>
+    </div> {% endcomment %}
+
     {% else %}
     <div class="header__buttons">
       <a href="{% url 'reg' %}" class="header__register-button button">
@@ -45,6 +55,7 @@
 <div class="proj">
   <div class="container">
     <div class="proj__main">
+      <div class="proj__title">Инновационные идеи</div>
       <div class="proj-item">
         <a href="#" class="proj-item__img-place">
           <div class="proj-item__img"></div>

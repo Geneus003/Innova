@@ -1,0 +1,194 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} Idea platform {% endblock %}
+
+{% block content2 %}
+<script src="{% static 'js/script.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}    
+<div class="header">
+  <div class="container">
+    <div class="header__logo">Тут должно быть лого</div>
+    <a href="{% url 'add_idea' %}" class="header__add-project-button button">
+      Добавить проект
+    </a>
+
+    {% if user.is_authenticated %}
+    {% comment %} <a href="{% url 'profile' %}" class="header__profile">
+      <div class="header__profile-link">Личный кабинет</div>
+    </a> {% endcomment %}
+    
+    {% else %}
+    <div class="header__buttons">
+      <a href="{% url 'reg' %}" class="header__register-button button">
+        Зарегистрироваться
+      </a>
+      <a href="{% url 'login' %}" class="header__login-button button">Войти</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="search-panel">
+  <div class="container">
+    <input
+      placeholder="Введите ключевые слова"
+      type="search"
+      class="search-panel__search input"
+    />
+    <button class="search-panel__button button">Поиск</button>
+    <button class="mobile-filter"></button>
+  </div>
+</div>
+
+<div class="proj">
+  <div class="container">
+    <div class="proj__main">
+      <div class="proj__title">Инновационные идеи</div>
+      <div class="proj-item">
+        <a href="#" class="proj-item__img-place">
+          <div class="proj-item__img"></div>
+        </a>
+        <div class="proj-item__info">
+          <div class="proj-item__specialization">Медицина</div>
+          <a href="#" class="proj-item__title">
+            <div class="proj-item__img-media"></div>
+            <h1>
+              Коллаген Viscoll для создания биомедицинских клеточных
+              продуктов, трехмерных тканеинженерных конструкций и
+              имплантируемых медицинских изделий
+            </h1>
+          </a>
+          <div class="proj-item__description">
+            Продукт, биополимерный матрикс на основе коллагена Viscoll,
+            предназначен для разработки биомедицинских клеточных продуктов и
+            трехмерных тканеинженерных ...
+          </div>
+          <div class="proj-item__stage">Стадия: <b> Продукт </b></div>
+          <div class="proj-item__need">
+            Потребности: <b> Партнеры, Инвестиции </b>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <a href="#" class="proj-item__img-place">
+          <div class="proj-item__img"></div>
+        </a>
+        <div class="proj-item__info">
+          <div class="proj-item__specialization">Медицина</div>
+          <a href="#" class="proj-item__title">
+            <div class="proj-item__img-media"></div>
+            <h1>
+              Коллаген Viscoll для создания биомедицинских клеточных
+              продуктов, трехмерных тканеинженерных конструкций и
+              имплантируемых медицинских изделий
+            </h1>
+          </a>
+          <div class="proj-item__description">
+            Продукт, биополимерный матрикс на основе коллагена Viscoll,
+            предназначен для разработки биомедицинских клеточных продуктов и
+            трехмерных тканеинженерных ...
+          </div>
+          <div class="proj-item__stage">Стадия: <b> Продукт </b></div>
+          <div class="proj-item__need">
+            Потребности: <b> Партнеры, Инвестиции </b>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <a href="#" class="proj-item__img-place">
+          <div class="proj-item__img"></div>
+        </a>
+        <div class="proj-item__info">
+          <div class="proj-item__specialization">Медицина</div>
+          <a href="#" class="proj-item__title">
+            <div class="proj-item__img-media"></div>
+            <h1>
+              Коллаген Viscoll для создания биомедицинских клеточных
+              продуктов, трехмерных тканеинженерных конструкций и
+              имплантируемых медицинских изделий
+            </h1>
+          </a>
+          <div class="proj-item__description">
+            Продукт, биополимерный матрикс на основе коллагена Viscoll,
+            предназначен для разработки биомедицинских клеточных продуктов и
+            трехмерных тканеинженерных ...
+          </div>
+          <div class="proj-item__stage">Стадия: <b> Продукт </b></div>
+          <div class="proj-item__need">
+            Потребности: <b> Партнеры, Инвестиции </b>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <a href="#" class="proj-item__img-place">
+          <div class="proj-item__img"></div>
+        </a>
+        <div class="proj-item__info">
+          <div class="proj-item__specialization">Медицина</div>
+          <a href="#" class="proj-item__title">
+            <div class="proj-item__img-media"></div>
+            <h1>
+              Коллаген Viscoll для создания биомедицинских клеточных
+              продуктов, трехмерных тканеинженерных конструкций и
+              имплантируемых медицинских изделий
+            </h1>
+          </a>
+          <div class="proj-item__description">
+            Продукт, биополимерный матрикс на основе коллагена Viscoll,
+            предназначен для разработки биомедицинских клеточных продуктов и
+            трехмерных тканеинженерных ...
+          </div>
+          <div class="proj-item__stage">Стадия: <b> Продукт </b></div>
+          <div class="proj-item__need">
+            Потребности: <b> Партнеры, Инвестиции </b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="proj__filters filter">
+      <div class="filter__title">Фильтры</div>
+      <input placeholder="Потребность" class="filter__need input" />
+      <input
+        placeholder="Специализация"
+        class="filter__specialization input"
+      />
+      <div class="filter__buttons">
+        <button class="filter__accept button2">Поиск</button>
+        <button class="filter__reset">Сбросить фильтры</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="d1" class="dropdown" style="display: none">
+  <div class="dropdown__item">dsadsa</div>
+  <div class="dropdown__item">ass</div>
+  <div class="dropdown__item">asdasd</div>
+  <div class="dropdown__item">dsadsa</div>
+  <div class="dropdown__item">1231</div>
+  <div class="dropdown__item">dsadsa</div>
+  <div class="dropdown__item">dsdsg</div>
+  <div class="dropdown__item">hfh</div>
+  <div class="dropdown__item">q414</div>
+  <div class="dropdown__item">asda</div>
+</div>
+
+<div id="d2" class="dropdown" style="display: none">
+  <div class="dropdown__item">dsadsa</div>
+  <div class="dropdown__item">ass</div>
+  <div class="dropdown__item">asdasd</div>
+  <div class="dropdown__item">dsadsa</div>
+  <div class="dropdown__item">1231</div>
+  <div class="dropdown__item">dsadsa</div>
+  <div class="dropdown__item">dsdsg</div>
+  <div class="dropdown__item">hfh</div>
+  <div class="dropdown__item">q414</div>
+  <div class="dropdown__item">asda</div>
+</div>
+{% endblock %}

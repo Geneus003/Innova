@@ -6,5 +6,82 @@
 {% endblock %}
 
 {% block content %}
-profile :)
+<div class="profile">
+  <div class="profile__title">Профиль</div>
+  <div class="profile__subtitle">{{ user.first_name }} {{ user.last_name }}</div>
+  <div class="container">
+    <div class="profile__ideas">
+      <div class="proj__title">Мои идеи</div>
+      <div class="proj-item">
+        <a href="#" class="proj-item__img-place">
+          <div class="proj-item__img"></div>
+        </a>
+        <div class="proj-item__info">
+          <div class="proj-item__specialization">Медицина</div>
+          <a href="#" class="proj-item__title">
+            <div class="proj-item__img-media"></div>
+            <h1>
+              Коллаген Viscoll для создания биомедицинских клеточных
+              продуктов, трехмерных тканеинженерных конструкций и
+              имплантируемых медицинских изделий
+            </h1>
+          </a>
+          <div class="proj-item__description">
+            Продукт, биополимерный матрикс на основе коллагена Viscoll,
+            предназначен для разработки биомедицинских клеточных продуктов и
+            трехмерных тканеинженерных ...
+          </div>
+          <div class="proj-item__stage">Стадия: <b> Продукт </b></div>
+          <div class="proj-item__need">
+            Потребности: <b> Партнеры, Инвестиции </b>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <a href="#" class="proj-item__img-place">
+          <div class="proj-item__img"></div>
+        </a>
+        <div class="proj-item__info">
+          <div class="proj-item__specialization">Медицина</div>
+          <a href="#" class="proj-item__title">
+            <div class="proj-item__img-media"></div>
+            <h1>
+              Коллаген Viscoll для создания биомедицинских клеточных
+              продуктов, трехмерных тканеинженерных конструкций и
+              имплантируемых медицинских изделий
+            </h1>
+          </a>
+          <div class="proj-item__description">
+            Продукт, биополимерный матрикс на основе коллагена Viscoll,
+            предназначен для разработки биомедицинских клеточных продуктов и
+            трехмерных тканеинженерных ...
+          </div>
+          <div class="proj-item__stage">Стадия: <b> Продукт </b></div>
+          <div class="proj-item__need">
+            Потребности: <b> Партнеры, Инвестиции </b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile__info">
+      <!-- <button class="profile__logout button">Выйти</button> -->
+      <a href="{% url 'home' %}" class="profile__return button">На главную</a>
+      <table class="profile__table">
+        <tr>
+          <th>Элктронная почта</th>
+          <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+          <th>Имя</th>
+          <td>{{ user.first_name }}</td>
+        </tr>
+        <tr>
+          <th>Фамилия</th>
+          <td>{{ user.last_name }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 {% endblock content %}

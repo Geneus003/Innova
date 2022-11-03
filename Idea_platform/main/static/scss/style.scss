@@ -10,6 +10,8 @@
   --sec-color-v2: #50de84;
   --alt-color: rgba(0, 0, 0, 0.5);
   --color-accent-fg: #0969da;
+  --alert-color: #E92731;
+  --alert-color-v2: #F7555D;
 
   --font-size-normal: clamp(0.625rem, 0.268rem + 1.14vw, 1.125rem);
   --font-size-title: clamp(1rem, 0.643rem + 1.14vw, 1.5rem);
@@ -183,8 +185,9 @@ body {
   // &__login-button {
   // }
 
-  // &__profile {
-  // }
+  &__profile {
+    position: relative;
+  }
 
   &__profile-link {
     position: relative;
@@ -192,20 +195,67 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
 
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: 50%;
-    //   left: -40px;
-    //   transform: translate(0, -50%);
-    //   border-radius: 100vh;
-    //   height: 30px;
-    //   width: 30px;
-    //   background-color: #9d9d9d;
-    // }
+    transition: all .3s;
+
+    &::before {
+      transition: all .3s;
+      content: '>';
+      position: absolute;
+      top: 50%;
+      left: -15%;
+      transform: translate(0, -50%) rotate(90deg);
+      border-radius: 100vh;
+    }
+
+    &--active{
+      &::before{
+        transform: translate(0, -50%) rotate(-90deg);
+      }
+    }
   }
 }
+
+.profile-dropdown {
+  display: none;
+  background: rgba(0, 0, 0,0.05);
+  width: 200px;
+
+  position: absolute;
+  top: 20px;
+  left: 50%;
+
+  transform: translate(-67%, 0);
+
+  &__enter {
+    display: block;
+    text-align: center;
+    padding-block: 10px;
+    padding-inline: 5px;
+
+    transition: all .2s;
+
+    &:hover {
+      background: var(--sec-color-v2);
+    }
+  }
+
+  &__logout {
+    display: block;
+    text-align: center;
+    padding-block: 10px;
+    padding-inline: 5px;
+
+    transition: all .2s;
+
+    &:hover {
+      background: var(--alert-color-v2);
+      color: #fff;
+    }
+  }
+}
+
 
 /*–––––––––––––––search–––––––––––––––*/
 
@@ -231,6 +281,12 @@ body {
   .container {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__title{
+    text-align: center;
+    font-size: var(--font-size-title);
+    font-weight: 700;
   }
 
   &__main {
@@ -665,4 +721,97 @@ body {
 
 .errorlist{
   color: #ff4040;
+}
+
+/*––––––––––––––––––––––––––––––*/
+/*–––––––––––––––PROFILE–––––––––––––––*/
+/*––––––––––––––––––––––––––––––*/
+
+
+.profile {
+
+  // &__return{
+  // }
+
+  &__title{
+    text-align: center;
+    padding-top: 10px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  &__subtitle{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+  }
+
+  .container {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  &__ideas {
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__info {
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+    // justify-content: center;
+  }
+
+  &__logout {
+    border-color: var(--alert-color-v2);
+    background: #fff;
+    filter: drop-shadow(0 0 3px var(--alert-color-v2));
+
+    &:hover{
+      background: var(--alert-color-v2);
+      border-color: var(--text-color);
+      color: #fff;
+    }
+  }
+
+  &__table {
+    text-align: center;
+
+
+    tr{
+      th {
+        padding: 10px;
+        border: 1px solid #000;
+      }
+  
+      td{
+        padding: 10px;
+        border: 1px solid #000;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    .container {
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+
+    &__ideas {
+      width: 100%;
+    }
+  
+    &__info {
+      width: 100%;
+    }
+  }
 }

@@ -9,6 +9,7 @@ urlpatterns = [
     path('add_idea', views.add_idea, name='add_idea'),
     path('login/', auth_views.LoginView.as_view(template_name='main/login.html'), name='login'),
     path('profile', views.profile, name='profile'),
+    path('logout', views.logout_rec, name='logout'),
 ]
 
 urlpatterns += [
