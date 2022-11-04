@@ -66,9 +66,11 @@ $('.dropdown__item').click(function (e) {
   if (tar.parent().attr('id') == 'd1') {
     let filter = $('.filter__need');
     console.log(filter.val);
+
     if (filter.val() == "") {
       filter.val(tar.text())
-    } else{
+
+    } else if (filter.val().indexOf(tar.text())==-1) {
       filter.val(filter.val() + ", " + tar.text())
     }
   } else {
@@ -76,7 +78,7 @@ $('.dropdown__item').click(function (e) {
     console.log(filter.val);
     if (filter.val() == "") {
       filter.val(tar.text())
-    } else{
+    } else if (filter.val().indexOf(tar.text())==-1) {
       filter.val(filter.val() + ", " + tar.text())
     }
   }
