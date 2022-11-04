@@ -1,21 +1,35 @@
 from unicodedata import name
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
 from .models import Categories, Ideas, CustomUser
 from .forms import register
 from django.contrib.auth import logout
 from datetime import datetime
 from django.views.generic import DetailView
+from django.core import serializers
 
 
 # Create your views here.
 
 
 def index(request):
+    # if request.is_ajax():
+    #     return JsonResponse({'data': Categories.objects.all()})
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        return JsonResponse({'data': Categories.objects.all()})
+
     context = {'ideas': Ideas.objects.all(), 'cat': Categories.objects.all()}
     return render(request, 'main/index.html', context)
 
+def ajax(request):
+    """Проверка доступности логина"""
+    data = serializers.serialize("json", Categories.objects.all())
+    response = {
+        'data': data,
+        'host': request.get_host(),
+    }
+    return JsonResponse(response)
 
 def reg(request):
     if request.method == 'POST':
@@ -75,7 +89,10 @@ def logout_rec(request):
 def search(request):
     cats = request.GET.get("cats", 1).split(",")
     cats = list(map(int, cats))
+    print(cats)
     context = {'ideas': Ideas.objects.filter(category_id__in=cats), 'cat': Categories.objects.all()}
+    # request.
+    # return HttpResponseRedirect('/search/?cats=1,16')
     return render(request, 'main/index.html', context)
 
 

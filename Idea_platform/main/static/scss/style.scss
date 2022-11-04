@@ -386,6 +386,12 @@ body {
   padding-right: 6%;
   padding-left: 2%;
 
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   &__need {
     display: block;
   }

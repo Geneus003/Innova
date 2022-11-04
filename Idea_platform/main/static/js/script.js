@@ -64,9 +64,21 @@ $('.dropdown__item').click(function (e) {
   // console.log(tar.parent().attr('id'));
   // console.log(tar.text());
   if (tar.parent().attr('id') == 'd1') {
-    $('.filter__need').val(tar.text());
+    let filter = $('.filter__need');
+    console.log(filter.val);
+    if (filter.val() == "") {
+      filter.val(tar.text())
+    } else{
+      filter.val(filter.val() + ", " + tar.text())
+    }
   } else {
-    $('.filter__specialization').val(tar.text());
+    let filter = $('.filter__specialization');
+    console.log(filter.val);
+    if (filter.val() == "") {
+      filter.val(tar.text())
+    } else{
+      filter.val(filter.val() + ", " + tar.text())
+    }
   }
 });
 
@@ -108,4 +120,79 @@ $('.filter__reset').click(function (e) {
 $('.mobile-filter').click(function (e) {
   // $('.filter').toggle();
   $('.filter').toggleClass('hidden');
+});
+
+
+// SEARCH
+
+$('.filter__accept').click(function (e) { 
+  e.preventDefault()
+
+  // console.log(window.location.pathname);
+
+  // if (window.location.pathname == "/") {
+
+  // }
+
+  $.ajax({
+    url: "../ajax",
+    success: function (response) {
+      data = JSON.parse(response.data);
+      let data2 = [];
+      for (let i = 0; i < Object.keys(data).length; i++) {
+        const element = data[i].fields.name;
+        data2.push(element);
+      }
+      const cat = $('.filter__need').val().split(', ')
+
+      let cats = ''
+    
+      // for (const item in cat) {
+      //   cats = cats + item 
+      // }
+
+      for (let i = 0; i < cat.length; i++) {
+        g = i+1
+        if (i == 0){
+          cats = cats + g
+        } else{
+          cats = cats + ',' + g
+        }
+      }
+      const host = response.host
+      const link = `http://${host}/search/?cats=${cats}`;
+      if (cats == 0) {
+        return
+      }
+      window.location.replace(link);
+    },
+    error: function (response) {
+      console.log(response)
+      console.log("fail");
+    }
+  });
+
+  // $.ajax({
+  //   data: $(this).serialize(), // получаяем данные формы
+  //   url: "{% url 'validate_username' %}",
+  //   // если успешно, то
+  //   success: function (response) {
+  //       if (response.is_taken == true) {
+  //           $('#id_username').removeClass('is-valid').addClass('is-invalid');
+  //           $('#id_username').after('Это имя пользователя недоступно!')
+  //       }
+  //       else {
+  //           $('#id_username').removeClass('is-invalid').addClass('is-valid');
+  //           $('#usernameError').remove();
+  //       }
+  //   },
+  //   // если ошибка, то
+  //   error: function (response) {
+  //       // предупредим об ошибке
+  //       console.log(response.responseJSON.errors)
+  //   }
+  // });
+
+  // path = `http://127.0.0.1:8000/search/?cats=${},16`
+  // window.location.replace(path);
 });

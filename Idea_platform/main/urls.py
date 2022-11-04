@@ -11,5 +11,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('logout', views.logout_rec, name='logout'),
     path('idea/<int:pk>', views.ideas.as_view(), name='ideas'),
-    path('search/', views.search, name="search")
+    path('search/', views.search, name="search"),
+    path('ajax', views.ajax, name='ajax')
 ]

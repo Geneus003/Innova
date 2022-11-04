@@ -373,6 +373,11 @@ body {
   padding-right: 6%;
   padding-left: 2%;
 }
+.filter form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .filter__need {
   display: block;
 }
