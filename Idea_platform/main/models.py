@@ -31,7 +31,7 @@ class Ideas(models.Model):
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=1024)
-    release_date = models.DateField(auto_now_add=True)
+    release_date = models.DateTimeField(auto_now_add=True)
     moderated = models.IntegerField(default=2)
     published = models.BooleanField(default=True)
 
