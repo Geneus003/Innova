@@ -190,6 +190,7 @@ body {
   }
 
   &__profile-link {
+    font-size: var(--font-size-normal);
     position: relative;
     height: 100%;
     display: flex;
@@ -729,6 +730,7 @@ body {
 
 
 .profile {
+  padding-top: 70px;
 
   // &__return{
   // }
@@ -863,5 +865,46 @@ body {
     }
   }
 }
+
+/*––––––––––––––––––––––––––––––*/
+/*–––––––––––––––IDEAS–––––––––––––––*/
+/*––––––––––––––––––––––––––––––*/
+
+.idea {
+  overflow: hidden;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 30px;
+
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 70px;
+    width: 80%;
+  }
+
+  &__category {
+    font-family: 'Montserrat';
+    font-size: 40px;
+  }
+
+  &__description {
+    font-size: 20px;
+    width: 60%;
+  }
+
+  &__tags {
+    font-size: 25px;
+  }
+}
+
+
 
 

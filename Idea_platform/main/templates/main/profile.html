@@ -2,8 +2,42 @@
 {% load static %}
 
 {% block content2 %}
-<script src="{% static 'js/script.js' %}" defer></script>
+<script src="{% static 'js/nav.js' %}" defer></script>
 {% endblock %}
+
+{% block nav %}
+<div class="header">
+  <div class="container">
+    <a href="{% url 'home' %}" class="header__logo">Тут должно быть лого</a>
+    <a href="{% url 'add_idea' %}" class="header__add-project-button button">
+      Добавить идею
+    </a>
+
+    {% if user.is_authenticated %}
+    <div class="header__profile">
+      <button class="header__profile-link">Личный кабинет</button>
+      <div class="profile-dropdown">
+        <a href="{% url 'profile' %}" class="profile-dropdown__enter">Войти в личный кобинет</a>
+        <a href="{% url 'logout' %}" class="profile-dropdown__logout">Выйти</a>
+      </div>
+    </div>
+
+    {% comment %} <div class="profile-dropdown">
+      <div class="profile-dropdown__enter">Войти в личный кобинет</div>
+      <div class="profile-dropdown__logout">Выйти</div>
+    </div> {% endcomment %}
+
+    {% else %}
+    <div class="header__buttons">
+      <a href="{% url 'reg' %}" class="header__register-button button">
+        Зарегистрироваться
+      </a>
+      <a href="{% url 'login' %}" class="header__login-button button">Войти</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock nav %}
 
 {% block content %}
 <div class="profile">

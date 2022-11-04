@@ -5,6 +5,7 @@
 
 {% block content2 %}
 <script src="{% static 'js/script.js' %}" defer></script>
+<script src="{% static 'js/nav.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}    
@@ -12,7 +13,7 @@
   <div class="container">
     <div class="header__logo">Тут должно быть лого</div>
     <a href="{% url 'add_idea' %}" class="header__add-project-button button">
-      Добавить проект
+      Добавить идею
     </a>
 
     {% if user.is_authenticated %}
@@ -59,12 +60,12 @@
 
       {% for item in ideas %}
       <div class="proj-item">
-        <a href="#" class="proj-item__img-place">
+        <a href="{% url 'ideas' item.id %}" class="proj-item__img-place">
           <div class="proj-item__img"></div>
         </a>
         <div class="proj-item__info">
           <div class="proj-item__specialization">{{item.category.name}}</div>
-          <a href="#" class="proj-item__title">
+          <a href="{% url 'ideas' item.id %}" class="proj-item__title">
             <div class="proj-item__img-media"></div>
             <h1>
               {{item.name}}

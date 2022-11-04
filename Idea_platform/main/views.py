@@ -6,9 +6,9 @@ from .models import Categories, Ideas, CustomUser
 from .forms import register
 from django.contrib.auth import logout
 from datetime import datetime
+from django.views.generic import DetailView
 
 # Create your views here.
-
 
 def index(request):
     context = {'ideas': Ideas.objects.all(), 'cat': Categories.objects.all()}
@@ -68,6 +68,12 @@ def profile(request):
 def logout_rec(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+
+class ideas(DetailView):
+    model = Ideas
+    template_name = "main/idea.html"
+    context_object_name = 'ideas'
 
 
 # # сохранение данных в бд

@@ -214,6 +214,7 @@ body {
   position: relative;
 }
 .header__profile-link {
+  font-size: var(--font-size-normal);
   position: relative;
   height: 100%;
   display: flex;
@@ -625,6 +626,9 @@ body {
 /*––––––––––––––––––––––––––––––*/
 /*–––––––––––––––PROFILE–––––––––––––––*/
 /*––––––––––––––––––––––––––––––*/
+.profile {
+  padding-top: 70px;
+}
 .profile__title {
   text-align: center;
   padding-top: 10px;
@@ -748,4 +752,36 @@ body {
 }
 .add-idea__form select__label {
   display: block;
+}
+
+/*––––––––––––––––––––––––––––––*/
+/*–––––––––––––––IDEAS–––––––––––––––*/
+/*––––––––––––––––––––––––––––––*/
+.idea {
+  overflow: hidden;
+}
+.idea .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 30px;
+  text-align: center;
+}
+.idea__title {
+  font-weight: 700;
+  font-size: 70px;
+  width: 80%;
+}
+.idea__category {
+  font-family: "Montserrat";
+  font-size: 40px;
+}
+.idea__description {
+  font-size: 20px;
+  width: 60%;
+}
+.idea__tags {
+  font-size: 25px;
 }/*# sourceMappingURL=style.css.map */
