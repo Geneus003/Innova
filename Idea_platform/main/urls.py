@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.contrib.auth import views as auth_views
 from . import views
 
@@ -11,4 +11,5 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('logout', views.logout_rec, name='logout'),
     path('idea/<int:pk>', views.ideas.as_view(), name='ideas'),
+    path('search/', views.search, name="search")
 ]

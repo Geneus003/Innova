@@ -56,7 +56,11 @@
 <div class="proj">
   <div class="container">
     <div class="proj__main">
-      <div class="proj__title">Инновационные идеи</div>
+      {% if ideas %}
+        <div class="proj__title">Инновационные идеи</div>
+      {% else %}
+        <div class="proj__title">Инновационных идей нет</div>
+      {% endif %}
 
       {% for item in ideas %}
       <div class="proj-item">

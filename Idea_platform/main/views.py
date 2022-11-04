@@ -8,7 +8,9 @@ from django.contrib.auth import logout
 from datetime import datetime
 from django.views.generic import DetailView
 
+
 # Create your views here.
+
 
 def index(request):
     context = {'ideas': Ideas.objects.all(), 'cat': Categories.objects.all()}
@@ -68,6 +70,13 @@ def profile(request):
 def logout_rec(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+
+def search(request):
+    cats = request.GET.get("cats", 1).split(",")
+    cats = list(map(int, cats))
+    context = {'ideas': Ideas.objects.filter(category_id__in=cats), 'cat': Categories.objects.all()}
+    return render(request, 'main/index.html', context)
 
 
 class ideas(DetailView):
