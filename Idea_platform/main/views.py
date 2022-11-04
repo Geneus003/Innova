@@ -57,7 +57,13 @@ def reg(request):
 
 @login_required
 def add_idea(request):
-  return render(request, 'main/add_idea.html')
+  if request.method == 'POST':
+    print(request.POST.get('title'))
+    print(request.POST.get('description'))
+    print(request.POST.get('category'))
+    return HttpResponseRedirect('/')
+  else:
+    return render(request, 'main/add_idea.html')
 
 @login_required
 def profile(request):

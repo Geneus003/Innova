@@ -686,4 +686,66 @@ body {
   .profile__info {
     width: 100%;
   }
+}
+
+/*––––––––––––––––––––––––––––––*/
+/*–––––––––––––––ADD_IDEA–––––––––––––––*/
+/*––––––––––––––––––––––––––––––*/
+.add-idea .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.add-idea__title {
+  text-align: center;
+  font-size: var(--font-size-title);
+  font-weight: 700;
+  padding-block: 40px;
+}
+.add-idea__form {
+  background: #edfcf2;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 4px;
+  width: 80%;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+.add-idea__form input {
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-family: sans-serif !important;
+  font-size: 14px;
+}
+.add-idea__form input__label {
+  display: block;
+}
+.add-idea__form textarea {
+  resize: none;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-family: sans-serif !important;
+  font-size: 14px;
+  height: 10vh;
+}
+.add-idea__form textarea__label {
+  display: block;
+}
+.add-idea__form select {
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  font-family: sans-serif !important;
+  font-size: 14px;
+}
+.add-idea__form select__label {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

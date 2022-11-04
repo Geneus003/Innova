@@ -2,11 +2,11 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import CustomUser
 
-class reg_f(forms.Form):
-    mail = forms.CharField(max_length=128, required=True)
-    name = forms.CharField(max_length=64, required=True)
-    password = forms.CharField(max_length=64, required=True)
-    surname = forms.CharField(max_length=64, required=True)
+# class reg_f(forms.Form):
+#     mail = forms.CharField(max_length=128, required=True)
+#     name = forms.CharField(max_length=64, required=True)
+#     password = forms.CharField(max_length=64, required=True)
+#     surname = forms.CharField(max_length=64, required=True)
 
 
 class register(forms.ModelForm):
@@ -22,12 +22,12 @@ class register(forms.ModelForm):
         fields = ('email', 'password', 'first_name', 'last_name')
 
 
-class login(forms.ModelForm):
-    email = forms.EmailField(label='Электронная почта', widget=forms.EmailInput(attrs={'class': 'input', 'placeholder':'Введите почту'}))
-    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder':'Введите пароль', 'id': 'password'}))
+# class login(forms.ModelForm):
+#     email = forms.EmailField(label='Электронная почта', widget=forms.EmailInput(attrs={'class': 'input', 'placeholder':'Введите почту'}))
+#     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'input', 'placeholder':'Введите пароль', 'id': 'password'}))
 
-    REQUIRED_FIELDS = ['email', 'password']
+#     REQUIRED_FIELDS = ['email', 'password']
 
-    class Meta:
-        model = CustomUser
-        fields = ('email', 'password')
+#     class Meta:
+#         model = CustomUser
+#         fields = ('email', 'password')

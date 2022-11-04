@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+  <div class="add-idea">
+    <div class="container">
+      <div class="add-idea__title">Добавить идею</div>
+      <form method="POST" class="add-idea__form">
+        <!-- {% csrf_token %}
+        {% comment %} {{ form }} {% endcomment %}
+    
+        {{ form.username.label_tag }}
+        {{ form.username }}
+    
+        {{ form.password.label_tag }}
+        {{ form.password }}
+          -->
+        <label>Название идеи</label>
+        <input
+          type="email"
+          placeholder="Введите Название идеи"
+          name="email"
+          required
+        />
+        <label>Описание идеи</label>
+        <textarea
+          type="password"
+          placeholder="Введите Описание идеи"
+          name="password"
+          required
+          
+        ></textarea>
+        <label>Категория</label>
+        <select name="category" id="">
+          <option value="Медецина">Медецина</option>
+          <option value="Технологии">Технологии</option>
+        </select>
+        <button class="login__sign-in">Добавить идею</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

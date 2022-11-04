@@ -1,10 +1,44 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block content2 %}
-<script src="{% static 'js/script.js' %}" defer></script>
-{% endblock %}
+{% block title %} Add Idea {% endblock %}
 
-{% block content %}
-add_idea :)
-{% endblock content %}
+
+{% block content %} 
+<div class="add-idea">
+  <div class="container">
+    <div class="add-idea__title">Добавить идею</div>
+    <form method="POST" class="add-idea__form">
+      <!-- {% csrf_token %}
+      {% comment %} {{ form }} {% endcomment %}
+  
+      {{ form.username.label_tag }}
+      {{ form.username }}
+  
+      {{ form.password.label_tag }}
+      {{ form.password }}
+        -->
+      {% csrf_token %}
+      <label>Название идеи</label>
+      <input
+        type="text"
+        placeholder="Введите Название идеи"
+        name="title"
+        required
+      />
+      <label>Описание идеи</label>
+      <textarea
+        type="text"
+        placeholder="Введите Описание идеи"
+        name="description"
+        required
+      ></textarea>
+      <label>Категория</label>
+      <select name="category" id="">
+        <option value="Медецина">Медецина</option>
+        <option value="Технологии">Технологии</option>
+      </select>
+      <button class="login__sign-in">Добавить идею</button>
+    </form>
+  </div>
+{% endblock  %}
