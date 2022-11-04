@@ -35,8 +35,11 @@
       ></textarea>
       <label>Категория</label>
       <select name="category" id="">
-        <option value="Медецина">Медецина</option>
-        <option value="Технологии">Технологии</option>
+        {% comment %} <option value="Медецина">Медецина</option>
+        <option value="Технологии">Технологии</option> {% endcomment %}
+        {% for item in cat %}
+        <option>{{item.name}}</option>
+        {% endfor %}
       </select>
       <button class="login__sign-in">Добавить идею</button>
     </form>

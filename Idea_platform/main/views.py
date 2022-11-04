@@ -2,9 +2,10 @@ from unicodedata import name
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .models import CustomUser
+from .models import Categories, Ideas, CustomUser
 from .forms import register
 from django.contrib.auth import logout
+from datetime import datetime
 
 # Create your views here.
 
@@ -57,13 +58,30 @@ def reg(request):
 
 @login_required
 def add_idea(request):
+  context = {'cat': Categories.objects.all()}
   if request.method == 'POST':
-    print(request.POST.get('title'))
-    print(request.POST.get('description'))
-    print(request.POST.get('category'))
+
+
+    # print(request.POST.get('title'))
+    # print(request.POST.get('description'))
+    # print(request.POST.get('category'))
+    # print(datetime.now())
+    # print(context['cat'].get(name = request.POST.get('category')).id)
+    # print(CustomUser.objects.get(id = request.user.id))
+    # print(request.user.id)
+
+
+    ideas = Ideas()
+    ideas.name = request.POST.get('title')
+    ideas.description = request.POST.get('description')
+    ideas.release_date = datetime.now()
+    ideas.author = CustomUser.objects.get(id = request.user.id)
+    ideas.category = context['cat'].get(name = request.POST.get('category'))
+    ideas.save()
     return HttpResponseRedirect('/')
   else:
-    return render(request, 'main/add_idea.html')
+    print(context)
+    return render(request, 'main/add_idea.html', context)
 
 @login_required
 def profile(request):
