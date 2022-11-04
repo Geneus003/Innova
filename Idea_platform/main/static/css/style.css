@@ -201,6 +201,11 @@ body {
   align-items: center;
   height: 100%;
 }
+.header__logo {
+  background: url(../img/logo2.png) center/100% no-repeat;
+  width: 140px;
+  height: 100%;
+}
 .header__add-project-button {
   background: #fff;
   filter: drop-shadow(0 0 10px var(--sec-color));

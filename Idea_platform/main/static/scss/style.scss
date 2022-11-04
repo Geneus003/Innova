@@ -165,8 +165,11 @@ body {
     height: 100%;
   }
 
-  // &__logo {
-  // }
+  &__logo {
+    background: url(../img/logo2.png) center/100% no-repeat;
+    width: 140px;
+    height: 100%;
+  }
 
   &__add-project-button {
     background: #fff;
