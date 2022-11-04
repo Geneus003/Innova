@@ -11,7 +11,8 @@ from datetime import datetime
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    context = {'ideas': Ideas.objects.all(), 'cat': Categories.objects.all()}
+    return render(request, 'main/index.html', context)
 
 
 def reg(request):

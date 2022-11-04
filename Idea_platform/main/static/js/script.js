@@ -2,8 +2,6 @@ const filterPlace = $('.filter').offset().top;
 const filterOffset =
   $(window).width() - $('.filter').offset().left - $('.filter').width() - 30;
 const filterWidth = $(window).width() - $('.filter').offset().left;
-// console.log($('.filter').offset().left);
-// console.log($(window).width());
 
 $(window).click(function (e) {
   if (e.target.classList[1] != 'input') {
@@ -78,7 +76,7 @@ $('.filter__need').keyup(function (e) {
   $('#d1').fadeIn('fast');
 
   $.each($('#d1 > .dropdown__item'), function (indexInArray, valueOfElement) {
-    if ($(valueOfElement).text().indexOf(value) == -1) {
+    if ($(valueOfElement).text().toUpperCase().indexOf(value.toUpperCase()) == -1) {
       $(valueOfElement).hide();
     } else {
       $(valueOfElement).show();
@@ -92,7 +90,7 @@ $('.filter__specialization').keyup(function (e) {
   $('#d2').fadeIn('fast');
 
   $.each($('#d2 > .dropdown__item'), function (indexInArray, valueOfElement) {
-    if ($(valueOfElement).text().indexOf(value) == -1) {
+    if ($(valueOfElement).text().toUpperCase().indexOf(value.toUpperCase()) == -1) {
       $(valueOfElement).hide();
     } else {
       $(valueOfElement).show();

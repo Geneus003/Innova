@@ -268,7 +268,7 @@ body {
 
 /*–––––––––––––––search–––––––––––––––*/
 .search-panel {
-  margin-top: 90px;
+  padding-top: 90px;
 }
 .search-panel .container {
   display: flex;
@@ -282,7 +282,7 @@ body {
 
 /*–––––––––––––––proj–––––––––––––––*/
 .proj {
-  margin-top: 50px;
+  padding-top: 50px;
 }
 .proj .container {
   display: flex;
