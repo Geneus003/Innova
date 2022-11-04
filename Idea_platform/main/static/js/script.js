@@ -130,12 +130,14 @@ $('.filter__accept').click(function (e) {
 
   // console.log(window.location.pathname);
 
-  // if (window.location.pathname == "/") {
-
-  // }
+  if (window.location.pathname == "/") {
+    urll = "ajax";
+  } else {
+    urll = "../ajax";
+  }
 
   $.ajax({
-    url: "../ajax",
+    url: urll,
     success: function (response) {
       data = JSON.parse(response.data);
       let data2 = [];
@@ -146,19 +148,17 @@ $('.filter__accept').click(function (e) {
       const cat = $('.filter__need').val().split(', ')
 
       let cats = ''
-    
-      // for (const item in cat) {
-      //   cats = cats + item 
-      // }
 
       for (let i = 0; i < cat.length; i++) {
-        g = i+1
+        g = i
+        item = data2.indexOf(cat[i]) + 1
         if (i == 0){
-          cats = cats + g
+          cats = cats + item
         } else{
-          cats = cats + ',' + g
+          cats = cats + ',' + item
         }
       }
+
       const host = response.host
       const link = `http://${host}/search/?cats=${cats}`;
       if (cats == 0) {
