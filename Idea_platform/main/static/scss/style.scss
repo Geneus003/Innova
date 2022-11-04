@@ -167,8 +167,16 @@ body {
 
   &__logo {
     background: url(../img/logo2.png) center/100% no-repeat;
-    width: 140px;
-    height: 100%;
+    width: 130px;
+    height: 90%;
+
+    @media (max-width:768px) {
+      width: 105px;
+    }
+
+    @media (max-width:425px) {
+      width: 75px;
+    }
   }
 
   &__add-project-button {
@@ -504,11 +512,12 @@ body {
   transform: translate(-50%, -50%);
 
   &__logo {
-    div {
-      background: rgba(0, 0, 0, 0.1) center no-repeat;
+    a {
+      display: block;
+      background: url(../img/favikon.png) center/100% no-repeat;
       width: 50px;
       height: 50px;
-      border-radius: 100%;
+      // border-radius: 100%;
       margin: auto;
     }
   }
