@@ -47,58 +47,33 @@
   <div class="profile__subtitle">{{ user.first_name }} {{ user.last_name }}</div>
   <div class="container">
     <div class="profile__ideas">
-      <div class="proj__title">Мои идеи</div>
-      <div class="proj-item">
-        <a href="#" class="proj-item__img-place">
-          <div class="proj-item__img"></div>
-        </a>
-        <div class="proj-item__info">
-          <div class="proj-item__specialization">Медицина</div>
-          <a href="#" class="proj-item__title">
-            <div class="proj-item__img-media"></div>
-            <h1>
-              Коллаген Viscoll для создания биомедицинских клеточных
-              продуктов, трехмерных тканеинженерных конструкций и
-              имплантируемых медицинских изделий
-            </h1>
-          </a>
-          <div class="proj-item__description">
-            Продукт, биополимерный матрикс на основе коллагена Viscoll,
-            предназначен для разработки биомедицинских клеточных продуктов и
-            трехмерных тканеинженерных ...
-          </div>
-          <div class="proj-item__stage">Стадия: <b> Продукт </b></div>
-          <div class="proj-item__need">
-            Потребности: <b> Партнеры, Инвестиции </b>
-          </div>
-        </div>
-      </div>
 
+      {% if ideas %}
+      <div class="proj__title">Мои идеи</div>
+      {% else %}
+      <div class="proj__title">Моих идеий нет</div>
+      {% endif %}
+
+      {% for item in ideas %}
       <div class="proj-item">
-        <a href="#" class="proj-item__img-place">
+        <a href="{% url 'ideas' item.id %}" class="proj-item__img-place">
           <div class="proj-item__img"></div>
         </a>
         <div class="proj-item__info">
-          <div class="proj-item__specialization">Медицина</div>
-          <a href="#" class="proj-item__title">
+          <div class="proj-item__specialization">{{item.category.name}}</div>
+          <a href="{% url 'ideas' item.id %}" class="proj-item__title">
             <div class="proj-item__img-media"></div>
             <h1>
-              Коллаген Viscoll для создания биомедицинских клеточных
-              продуктов, трехмерных тканеинженерных конструкций и
-              имплантируемых медицинских изделий
+              {{item.name}}
             </h1>
           </a>
           <div class="proj-item__description">
-            Продукт, биополимерный матрикс на основе коллагена Viscoll,
-            предназначен для разработки биомедицинских клеточных продуктов и
-            трехмерных тканеинженерных ...
+            {{item.description}}
           </div>
-          <div class="proj-item__stage">Стадия: <b> Продукт </b></div>
-          <div class="proj-item__need">
-            Потребности: <b> Партнеры, Инвестиции </b>
-          </div>
+          <div class="proj-item__stage">Теги: <b> {{ideas.tag}} ??? </b></div>
         </div>
       </div>
+      {% endfor %}
     </div>
     <div class="profile__info">
       <!-- <button class="profile__logout button">Выйти</button> -->
@@ -131,8 +106,7 @@
 
 
         {% for item in teams %}
-        <a href="" class="profile__team">
-          {{item.id}}
+        <a href="{% url 'team' item.id %}" class="profile__team">
           <div class="profile__team-item">{{item.name}}</div>
         </a>
         {% endfor %}

@@ -173,19 +173,22 @@ class profile(DetailView):
     context_object_name = 'user'
 
     def get_context_data(self, **kwargs):
+        now_command_id = self.kwargs['pk']
         context = super().get_context_data()
-        c_a = AuthorCommands.objects.filter(author_id = self.request.user.id)
-        print(self.request.user.id)
-        print(c_a)
+        c_a = AuthorCommands.objects.filter(author_id=self.request.user.id).values()
+        command_ids = []
+        for i in c_a:
+            command_ids.append(i["command_id_id"])
         all_data = []
         data=[]
 
-        for i in Commands.objects.filter(id__in=c_a).values():
-            print(i)
+        ideas = Ideas.objects.filter(author_id = now_command_id)
+        context['ideas'] = ideas
+
+        for i in Commands.objects.filter(id__in=command_ids).values():
             data.append(i)
             all_data.append([i["name"], i["id"]])
 
-        print(all_data)
         context['c_a'] = c_a
         context['teams'] = data
 
