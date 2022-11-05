@@ -172,6 +172,25 @@ class profile(DetailView):
     template_name = "main/profile.html"
     context_object_name = 'user'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        c_a = AuthorCommands.objects.filter(author_id = self.request.user.id)
+        print(self.request.user.id)
+        print(c_a)
+        all_data = []
+        data=[]
+
+        for i in Commands.objects.filter(id__in=c_a).values():
+            print(i)
+            data.append(i)
+            all_data.append([i["name"], i["id"]])
+
+        print(all_data)
+        context['c_a'] = c_a
+        context['teams'] = data
+
+        return context
+
     def post(self, request, *args, **kwargs):
         # print("-----------------------")
 
@@ -215,6 +234,9 @@ def add_team(request):
         return HttpResponseRedirect('/')
     else:
         return render(request, 'main/add_team.html')
+
+def users(request):
+    return render(request, 'main/users.html', {'users': CustomUser.objects.all()})
 
 # # сохранение данных в бд
 # def create(request):

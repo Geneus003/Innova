@@ -125,16 +125,21 @@
       {% else %}
       <a href="{% url 'add_team' %}" class="button">Создать команду</a>
       {% endif %}
+      {% if user.id == request.user.id %}
       <div class="profile__teams">
         <div class="profile__teams-title">Мои команды</div>
+
+
         {% for item in teams %}
-        
-        {% endfor %}
-        <a href="#" class="profile__team">
-          <div class="profile__team-item">{{team.first_name}}</div>
-          <div class="profile__team-item">{{team.last_name}}</div>
+        <a href="" class="profile__team">
+          {{item.id}}
+          <div class="profile__team-item">{{item.name}}</div>
         </a>
+        {% endfor %}
+
+
       </div>
+      {% endif %}
     </div>
   </div>
 </div>

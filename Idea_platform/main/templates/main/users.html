@@ -48,7 +48,7 @@
 
     {% for item in users %}
     <a href="{% url 'profile' item.id %}" class="users__item">
-      <div class="users__info">{{ item.first_name }}</div>
+      <div class="users__info">{{item.first_name}}</div>
       <div class="users__info">{{item.last_name}}</div>
     </a>
     {% endfor %}
