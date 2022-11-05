@@ -2,12 +2,13 @@ from unicodedata import name
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
-from .models import Categories, Ideas, CustomUser, Commands
+from .models import Categories, Ideas, CustomUser, Commands, AuthorCommands
 from .forms import register
 from django.contrib.auth import logout
 from datetime import datetime
 from django.views.generic import DetailView
 from django.core import serializers
+from django.db.models import Max
 
 
 # Create your views here.
@@ -131,10 +132,16 @@ def add_team(request):
         # print(request.user.id)
 
         team = Commands()
+        AC = AuthorCommands()
+
         team.name = request.POST.get('title')
         team.description = request.POST.get('description')
-        team.author = CustomUser.objects.get(id=request.user.id)
+        # team.author = CustomUser.objects.get(id=request.user.id)
         team.save()
+        id = Commands.objects.aggregate(Max('id'))['id__max']
+        AC.author_id = CustomUser.objects.get(id=request.user.id)
+        AC.command_id = Commands.objects.get(id=id)
+        AC.save()
         return HttpResponseRedirect('/')
     else:
         return render(request, 'main/add_team.html')
