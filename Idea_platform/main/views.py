@@ -76,11 +76,12 @@ def add_idea(request):
         return render(request, 'main/add_idea.html', context)
 
 
+# @login_required
+# def profile(request):
+#     return render(request, 'main/profile.html')
+
+
 @login_required
-def profile(request):
-    return render(request, 'main/profile.html')
-
-
 def logout_rec(request):
     logout(request)
     return HttpResponseRedirect('/')
@@ -101,6 +102,40 @@ class ideas(DetailView):
     template_name = "main/idea.html"
     context_object_name = 'ideas'
 
+@login_required
+def team(request):
+    return render(request, 'main/team.html')
+
+
+class profile(DetailView):
+    model = CustomUser
+    template_name = "main/profile.html"
+    context_object_name = 'user'
+
+@login_required
+def add_team(request):
+
+    if request.method == 'POST':
+
+        # print(request.POST.get('title'))
+        # print(request.POST.get('description'))
+        # print(request.POST.get('category'))
+        # print(datetime.now())
+        # print(context['cat'].get(name = request.POST.get('category')).id)
+        # print(CustomUser.objects.get(id = request.user.id))
+        # print(request.user.id)
+
+        ideas = Ideas()
+        ideas.name = request.POST.get('title')
+        ideas.description = request.POST.get('description')
+        ideas.author = CustomUser.objects.get(id=request.user.id)
+        ideas.save()
+        return HttpResponseRedirect('/')
+    else:
+        print(context)
+        return render(request, 'main/add_idea.html', context)
+
+    return render(request, 'main/add_team.html')
 
 # # сохранение данных в бд
 # def create(request):

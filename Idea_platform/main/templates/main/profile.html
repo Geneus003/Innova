@@ -1,6 +1,8 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
+{% block title %} {{user.first_name}} {{user.last_name}} {% endblock %}
+
 {% block content2 %}
 <script src="{% static 'js/nav.js' %}" defer></script>
 {% endblock %}
@@ -17,7 +19,7 @@
     <div class="header__profile">
       <button class="header__profile-link">Личный кабинет</button>
       <div class="profile-dropdown">
-        <a href="{% url 'profile' %}" class="profile-dropdown__enter">Войти в личный кобинет</a>
+        <a href="{% url 'profile' user.id %}" class="profile-dropdown__enter">Войти в личный кобинет</a>
         <a href="{% url 'logout' %}" class="profile-dropdown__logout">Выйти</a>
       </div>
     </div>
@@ -100,6 +102,8 @@
     </div>
     <div class="profile__info">
       <!-- <button class="profile__logout button">Выйти</button> -->
+      {{user.id}}
+      {{request.user.id}}
       <a href="{% url 'home' %}" class="profile__return button">На главную</a>
       <table class="profile__table">
         <tr>
@@ -115,6 +119,11 @@
           <td>{{ user.last_name }}</td>
         </tr>
       </table>
+      {% if user.id != request.user.id %}
+      <div class="button">Добавить в команду</div>
+      {% else %}
+      <div class="button">Создать команду</div>
+      {% endif %}
     </div>
   </div>
 </div>

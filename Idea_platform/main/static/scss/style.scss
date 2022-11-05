@@ -923,6 +923,60 @@ body {
   }
 }
 
+/*––––––––––––––––––––––––––––––*/
+/*–––––––––––––––TEAM–––––––––––––––*/
+/*––––––––––––––––––––––––––––––*/
+
+.team {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+    padding-top: 100px;
+  }
+
+  &__members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__item {
+    width: 20%;
+    background-color: #edf9fc;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding-block: 20px;
+
+    border: 1.5px solid var(--sec-color-v2);
+  }
+
+  &__text {
+    // color: rgba(255, 255, 255, 0.8);
+    padding-block: 10px;
+    width: 80%;
+
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+
+
+
 
 
 

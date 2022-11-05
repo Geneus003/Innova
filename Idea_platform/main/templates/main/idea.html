@@ -17,7 +17,7 @@
     <div class="header__profile">
       <button class="header__profile-link">Личный кабинет</button>
       <div class="profile-dropdown">
-        <a href="{% url 'profile' %}" class="profile-dropdown__enter">Войти в личный кобинет</a>
+        <a href="{% url 'profile' user.id %}" class="profile-dropdown__enter">Войти в личный кобинет</a>
         <a href="{% url 'logout' %}" class="profile-dropdown__logout">Выйти</a>
       </div>
     </div>

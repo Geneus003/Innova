@@ -42,43 +42,31 @@
 {% endblock nav %}
 
 {% block content %} 
-<div class="add-idea">
+<div class="team">
   <div class="container">
-    <div class="add-idea__title">Добавить идею</div>
-    <form method="POST" class="add-idea__form">
-      <!-- {% csrf_token %}
-      {% comment %} {{ form }} {% endcomment %}
-  
-      {{ form.username.label_tag }}
-      {{ form.username }}
-  
-      {{ form.password.label_tag }}
-      {{ form.password }}
-        -->
-      {% csrf_token %}
-      <label>Название идеи</label>
-      <input
-        type="text"
-        placeholder="Введите Название идеи"
-        name="title"
-        required
-      />
-      <label>Описание идеи</label>
-      <textarea
-        type="text"
-        placeholder="Введите Описание идеи"
-        name="description"
-        required
-      ></textarea>
-      <label>Категория</label>
-      <select name="category" id="">
-        {% comment %} <option value="Медецина">Медецина</option>
-        <option value="Технологии">Технологии</option> {% endcomment %}
-        {% for item in cat %}
-        <option>{{item.name}}</option>
-        {% endfor %}
-      </select>
-      <button class="login__sign-in">Добавить идею</button>
-    </form>
+    <div class="team__title">Название команды</div>
+    <div class="team__members">
+
+      <div class="team__item">
+        <div class="team__text">Алмаз</div>
+        <div class="team__text">Абдулхаков</div>
+        <div class="team__text">dsadsa@mail.ru</div>
+      </div>
+
+      <div class="team__item">
+        <div class="team__text">Алмаз</div>
+        <div class="team__text">Абдулхаков</div>
+        <div class="team__text">dsadsa@mail.ru</div>
+      </div>
+
+      <div class="team__item">
+        <div class="team__text">Алмаз</div>
+        <div class="team__text">Абдулхаков</div>
+        <div class="team__text">dsadsa@mail.ru</div>
+      </div>
+
+    </div>
+    <div class="button">Найти участнков</div>
   </div>
+</div>
 {% endblock  %}

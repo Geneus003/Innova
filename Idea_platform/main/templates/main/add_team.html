@@ -44,7 +44,7 @@
 {% block content %} 
 <div class="add-idea">
   <div class="container">
-    <div class="add-idea__title">Добавить идею</div>
+    <div class="add-idea__title">Создать команду</div>
     <form method="POST" class="add-idea__form">
       <!-- {% csrf_token %}
       {% comment %} {{ form }} {% endcomment %}
@@ -56,29 +56,21 @@
       {{ form.password }}
         -->
       {% csrf_token %}
-      <label>Название идеи</label>
+      <label>Название команды</label>
       <input
         type="text"
-        placeholder="Введите Название идеи"
+        placeholder="Введите Название команды"
         name="title"
         required
       />
-      <label>Описание идеи</label>
+      <label>Описание команды</label>
       <textarea
         type="text"
-        placeholder="Введите Описание идеи"
+        placeholder="Введите Описание команды"
         name="description"
         required
       ></textarea>
-      <label>Категория</label>
-      <select name="category" id="">
-        {% comment %} <option value="Медецина">Медецина</option>
-        <option value="Технологии">Технологии</option> {% endcomment %}
-        {% for item in cat %}
-        <option>{{item.name}}</option>
-        {% endfor %}
-      </select>
-      <button class="login__sign-in">Добавить идею</button>
+      <button class="login__sign-in">Создать команду</button>
     </form>
   </div>
 {% endblock  %}
