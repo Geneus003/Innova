@@ -182,12 +182,9 @@ class profile(DetailView):
         all_data = []
         data=[]
 
-<<<<<<< HEAD
         ideas = Ideas.objects.filter(author_id = now_command_id)
         context['ideas'] = ideas
 
-=======
->>>>>>> 2b4678a6d0e820bb05c3499531396a1b3505f212
         for i in Commands.objects.filter(id__in=command_ids).values():
             data.append(i)
             all_data.append([i["name"], i["id"]])
