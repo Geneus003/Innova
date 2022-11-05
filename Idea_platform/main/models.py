@@ -48,3 +48,8 @@ class IdeasTags(models.Model):
 class AuthorIdeas(models.Model):
     author_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     idea_id = models.ForeignKey(Ideas, on_delete=models.CASCADE)
+
+
+class AuthorCommands(models.Model):
+    author_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    command_id = models.ForeignKey(Commands, on_delete=models.CASCADE)
