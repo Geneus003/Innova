@@ -18,4 +18,5 @@ urlpatterns = [
     path('profile/<int:pk>', login_required(views.profile.as_view()), name='profile'),
     path('team/<int:pk>', login_required(views.team.as_view()), name='team'),
     path('add_team', views.add_team, name='add_team'),
+    path('users', views.users, name='users'),
 ]

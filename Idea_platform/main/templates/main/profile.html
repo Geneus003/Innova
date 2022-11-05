@@ -125,6 +125,16 @@
       {% else %}
       <a href="{% url 'add_team' %}" class="button">Создать команду</a>
       {% endif %}
+      <div class="profile__teams">
+        <div class="profile__teams-title">Мои команды</div>
+        {% for item in teams %}
+        
+        {% endfor %}
+        <a href="#" class="profile__team">
+          <div class="profile__team-item">{{team.first_name}}</div>
+          <div class="profile__team-item">{{team.last_name}}</div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

@@ -84,6 +84,13 @@
             <td>Хижняк</td>
           </tr>
         </table>
+        <div class="profile__teams">
+          <div class="profile__teams-title">Мои команды</div>
+          <a href="{% url 'profile' item.id %}" class="profile__team">
+            <div class="profile__team-item">{{item.first_name}}</div>
+            <div class="profile__team-item">{{item.last_name}}</div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
