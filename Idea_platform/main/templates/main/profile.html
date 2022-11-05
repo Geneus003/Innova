@@ -102,8 +102,6 @@
     </div>
     <div class="profile__info">
       <!-- <button class="profile__logout button">Выйти</button> -->
-      {{user.id}}
-      {{request.user.id}}
       <a href="{% url 'home' %}" class="profile__return button">На главную</a>
       <table class="profile__table">
         <tr>
@@ -120,7 +118,10 @@
         </tr>
       </table>
       {% if user.id != request.user.id %}
-      <a class="button">Добавить в команду</a>
+      <form method="POST">
+        {% csrf_token %}
+        <button class="button">Добавить в команду</button>
+      </form>
       {% else %}
       <a href="{% url 'add_team' %}" class="button">Создать команду</a>
       {% endif %}

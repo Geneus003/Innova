@@ -9,6 +9,9 @@ from datetime import datetime
 from django.views.generic import DetailView
 from django.core import serializers
 from django.db.models import Max
+from django.views.generic.list import ListView
+from django.views.generic.base import View
+
 
 
 # Create your views here.
@@ -73,7 +76,6 @@ def add_idea(request):
         ideas.save()
         return HttpResponseRedirect('/')
     else:
-        print(context)
         return render(request, 'main/add_idea.html', context)
 
 
@@ -103,20 +105,83 @@ class ideas(DetailView):
     template_name = "main/idea.html"
     context_object_name = 'ideas'
 
-# @login_required
-# def team(request):
-#     return render(request, 'main/team.html')
+
+# class team(View):
+#     model = Commands
+#     template_name = "main/team.html"
+#     context_object_name = 'team'
+
+#     def get(self, request, pk):
+#         print(pk)
+#         data = CustomUser.objects.all()
+#         print(data)
+#         return render(request, "main/team.html", {"bbb": data})
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data()
+#         context['AC'] = AuthorCommands.objects.all()
+#         context['user2'] = CustomUser.objects.all()
+#         context['user'] = CustomUser.objects.all()
+
+#         print(context['AC'])
+#         print(context['user'])
+
+#         return context
+
 
 class team(DetailView):
     model = Commands
     template_name = "main/team.html"
     context_object_name = 'team'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['AC'] = AuthorCommands.objects.all()
+        context['user'] = CustomUser.objects.all()
+
+        print(context['AC'])
+        print(context['user'])
+
+        return context
+
+
+# class team(ListView):
+#     model = Commands
+#     template_name = "main/team.html"
+#     context_object_name = 'team'
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data()
+#         context['AC'] = AuthorCommands.objects.all()
+#         context['user2'] = CustomUser.objects.all()
+#         context['user'] = CustomUser.objects.all()
+
+#         print(context['AC'])
+#         print(context['user'])
+
+#         return context
+
 
 class profile(DetailView):
     model = CustomUser
     template_name = "main/profile.html"
     context_object_name = 'user'
+
+    def post(self, request, *args, **kwargs):
+        # print("-----------------------")
+
+        AC = AuthorCommands()
+
+        # print(request.user.id)
+        # print(self.get_object().id)
+        # print(AuthorCommands.objects.get(author_id = request.user.id))
+
+        AC.author_id = CustomUser.objects.get(id = self.get_object().id)
+        AC.command_id = AuthorCommands.objects.get(author_id = request.user.id).command_id
+        # AC.command_id = Commands.objects.get(id=id)
+
+        AC.save()
+        return HttpResponseRedirect('/')
 
 @login_required
 def add_team(request):
@@ -145,8 +210,6 @@ def add_team(request):
         return HttpResponseRedirect('/')
     else:
         return render(request, 'main/add_team.html')
-
-    return render(request, 'main/add_team.html')
 
 # # сохранение данных в бд
 # def create(request):
