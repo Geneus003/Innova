@@ -135,9 +135,14 @@ class team(DetailView):
     context_object_name = 'team'
 
     def get_context_data(self, **kwargs):
+        now_command_id = self.kwargs['pk']
         context = super().get_context_data()
-        context['AC'] = AuthorCommands.objects.all()
-        context['user'] = CustomUser.objects.all()
+        command_authors = AuthorCommands.objects.filter(command_id__in=[int(now_command_id)])
+        all_data = []
+        for i in CustomUser.objects.filter(id__in=command_authors).values():
+            all_data.append([i["first_name"], i["last_name"], i["email"]])
+        context["AC"] = all_data
+        context['user'] = all_data
 
         print(context['AC'])
         print(context['user'])
