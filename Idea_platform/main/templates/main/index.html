@@ -78,7 +78,6 @@
           <div class="proj-item__description">
             {{item.description}}
           </div>
-          <div class="proj-item__stage">Теги: <b> {{ideas.tag}} ??? </b></div>
         </div>
       </div>
 
@@ -114,10 +113,6 @@
     <div class="proj__filters filter">
       <div class="filter__title">Фильтры</div>
       <input placeholder="Категория" class="filter__need input" />
-      <input
-        placeholder="Теги"
-        class="filter__specialization input"
-      />
       <div class="filter__buttons">
         <button class="filter__accept button2">Поиск</button>
         <button class="filter__reset">Сбросить фильтры</button>
@@ -127,31 +122,8 @@
 </div>
 
 <div id="d1" class="dropdown" style="display: none">
-  {% comment %} <div class="dropdown__item">dsadsa</div>
-  <div class="dropdown__item">ass</div>
-  <div class="dropdown__item">asdasd</div>
-  <div class="dropdown__item">dsadsa</div>
-  <div class="dropdown__item">1231</div>
-  <div class="dropdown__item">dsadsa</div>
-  <div class="dropdown__item">dsdsg</div>
-  <div class="dropdown__item">hfh</div>
-  <div class="dropdown__item">q414</div>
-  <div class="dropdown__item">asda</div> {% endcomment %}
   {% for item in cat %}
   <div class="dropdown__item">{{item.name}}</div>
   {% endfor %}
-</div>
-
-<div id="d2" class="dropdown" style="display: none">
-  <div class="dropdown__item">dsadsa</div>
-  <div class="dropdown__item">ass</div>
-  <div class="dropdown__item">asdasd</div>
-  <div class="dropdown__item">dsadsa</div>
-  <div class="dropdown__item">1231</div>
-  <div class="dropdown__item">dsadsa</div>
-  <div class="dropdown__item">dsdsg</div>
-  <div class="dropdown__item">hfh</div>
-  <div class="dropdown__item">q414</div>
-  <div class="dropdown__item">asda</div>
 </div>
 {% endblock %}
