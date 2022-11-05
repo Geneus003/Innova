@@ -49,17 +49,11 @@
 
       {% for item in AC %}
       <div class="team__item">
-        <div class="team__text">{{user}}</div>
-        <div class="team__text">{{user2}}</div>
-        <div class="team__text">dsadsa@mail.ru</div>
+        {% for item2 in item %}
+          <div class="team__text">{{item2}}</div>
+        {% endfor %}
       </div>
       {% endfor %}
-
-      <div class="team__item">
-        <div class="team__text">Алмаз</div>
-        <div class="team__text">Абдулхаков</div>
-        <div class="team__text">dsadsa@mail.ru</div>
-      </div>
 
     </div>
     <div class="team__description">{{team.description}}</div>
