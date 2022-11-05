@@ -2,7 +2,7 @@ from unicodedata import name
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
-from .models import Categories, Ideas, CustomUser
+from .models import Categories, Ideas, CustomUser, Commands
 from .forms import register
 from django.contrib.auth import logout
 from datetime import datetime
@@ -102,9 +102,14 @@ class ideas(DetailView):
     template_name = "main/idea.html"
     context_object_name = 'ideas'
 
-@login_required
-def team(request):
-    return render(request, 'main/team.html')
+# @login_required
+# def team(request):
+#     return render(request, 'main/team.html')
+
+class team(DetailView):
+    model = Commands
+    template_name = "main/team.html"
+    context_object_name = 'team'
 
 
 class profile(DetailView):
@@ -125,15 +130,14 @@ def add_team(request):
         # print(CustomUser.objects.get(id = request.user.id))
         # print(request.user.id)
 
-        ideas = Ideas()
-        ideas.name = request.POST.get('title')
-        ideas.description = request.POST.get('description')
-        ideas.author = CustomUser.objects.get(id=request.user.id)
-        ideas.save()
+        team = Commands()
+        team.name = request.POST.get('title')
+        team.description = request.POST.get('description')
+        team.author = CustomUser.objects.get(id=request.user.id)
+        team.save()
         return HttpResponseRedirect('/')
     else:
-        print(context)
-        return render(request, 'main/add_idea.html', context)
+        return render(request, 'main/add_team.html')
 
     return render(request, 'main/add_team.html')
 

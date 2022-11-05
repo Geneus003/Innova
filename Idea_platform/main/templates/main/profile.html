@@ -120,9 +120,9 @@
         </tr>
       </table>
       {% if user.id != request.user.id %}
-      <div class="button">Добавить в команду</div>
+      <a class="button">Добавить в команду</a>
       {% else %}
-      <div class="button">Создать команду</div>
+      <a href="{% url 'add_team' %}" class="button">Создать команду</a>
       {% endif %}
     </div>
   </div>

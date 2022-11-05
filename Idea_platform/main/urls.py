@@ -13,8 +13,9 @@ urlpatterns = [
     path('logout', views.logout_rec, name='logout'),
     path('idea/<int:pk>', views.ideas.as_view(), name='ideas'),
     path('search/', views.search, name="search"),
-    path('team', views.team, name='team'),
+    # path('team', views.team, name='team'),
     path('ajax', views.ajax, name='ajax'),
     path('profile/<int:pk>', login_required(views.profile.as_view()), name='profile'),
+    path('team/<int:pk>', login_required(views.team.as_view()), name='team'),
     path('add_team', views.add_team, name='add_team'),
 ]

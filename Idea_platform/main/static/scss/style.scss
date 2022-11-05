@@ -965,11 +965,16 @@ body {
   }
 
   &__text {
-    // color: rgba(255, 255, 255, 0.8);
     padding-block: 10px;
     width: 80%;
 
     border: 1.5px solid rgba(0, 0, 0, 0.2);
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 20px;
+    width: 70%;
   }
 }
 

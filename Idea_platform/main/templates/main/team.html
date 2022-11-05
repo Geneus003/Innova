@@ -44,20 +44,16 @@
 {% block content %} 
 <div class="team">
   <div class="container">
-    <div class="team__title">Название команды</div>
+    <div class="team__title">{{team.name}}</div>
     <div class="team__members">
 
+      {% comment %} {% for item in team %}
       <div class="team__item">
         <div class="team__text">Алмаз</div>
         <div class="team__text">Абдулхаков</div>
         <div class="team__text">dsadsa@mail.ru</div>
       </div>
-
-      <div class="team__item">
-        <div class="team__text">Алмаз</div>
-        <div class="team__text">Абдулхаков</div>
-        <div class="team__text">dsadsa@mail.ru</div>
-      </div>
+      {% endfor %} {% endcomment %}
 
       <div class="team__item">
         <div class="team__text">Алмаз</div>
@@ -66,6 +62,7 @@
       </div>
 
     </div>
+    <div class="team__description">{{team.description}}</div>
     <div class="button">Найти участнков</div>
   </div>
 </div>
