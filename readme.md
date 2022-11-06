@@ -13,6 +13,6 @@ Task 1 from [this hackathon](https://lk.leaders2022.innoagency.ru/tasks)
 - FetVil
 - dipperok
 
-*-Ты умеешь в бэкенд?*\
-*-Я - нет. А ты?*\
-*-И я не умею...*
+*- Ты умеешь в бэкенд?*\
+*- Я - нет. А ты?*\
+*- И я не умею...*
